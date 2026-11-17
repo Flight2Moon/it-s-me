@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>Jihoney OS — Ji Heon Kim</title>
+<meta name="description" content="Ji Heon Kim's portfolio, served as a tiny operating system: terminal, games, and research on vision-language models and trustworthy AI.">
+<meta name="theme-color" content="#f5b301">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍯</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/os.css">
+</head>
+<body>
+<div id="os">
+  <header id="menubar">
+    <button class="logo" data-open="about" aria-label="About Ji Heon Kim">🍯 <b>Jihoney OS</b></button>
+    <span id="active-title"></span>
+    <span class="spacer"></span>
+    <a href="resume.html">Resume</a>
+    <span id="clock" aria-live="off"></span>
+  </header>
+  <main id="desktop" aria-label="Desktop"></main>
+  <nav id="dock" aria-label="Dock"></nav>
+</div>
+<div id="boot" role="status"><pre></pre></div>
+<noscript><p style="padding:2rem;font-family:monospace">Jihoney OS needs JavaScript. A plain version of the résumé is at <a href="assets/JiHeonKim_Resume.pdf">assets/JiHeonKim_Resume.pdf</a>.</p></noscript>
+<script src="js/content.js"></script>
+<script src="js/terminal.js"></script>
+<script src="js/games.js"></script>
+<script src="js/os.js"></script>
+</body>
+</html>

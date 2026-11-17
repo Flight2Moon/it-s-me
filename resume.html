@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Résumé — Ji Heon Kim</title>
+<meta name="description" content="Résumé of Ji Heon Kim — undergraduate AI researcher (vision-language models, multimodal learning, trustworthy AI).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/os.css">
+<style>
+  /* a plain scrolling page: undo the OS's fixed, non-scrolling body */
+  html, body { height: auto; overflow: auto; }
+  body { background-color: var(--honey); background-image: radial-gradient(rgba(26,22,18,.55) 1px, transparent 1.3px); background-size: 6px 6px; padding: 0 0 40px; }
+  .top { position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 8px 12px; background: var(--paper); border-bottom: 2px solid var(--ink); }
+  .top .btn { box-shadow: 2px 2px 0 var(--ink); padding: 5px 10px; }
+  .sheet { max-width: 860px; margin: 22px auto 0; background: var(--paper); border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); }
+  .doc details > summary { pointer-events: none; }
+  .doc summary h3::before { content: "" !important; }
+  @media (max-width: 720px) { .sheet { margin: 0; border-width: 0 0 2px; box-shadow: none; } }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .top { display: none; }
+    .sheet { border: 0; box-shadow: none; max-width: none; margin: 0; }
+    .doc { font-size: 10.5pt; padding: 0; }
+    .doc .item { break-inside: avoid; }
+    .btn { box-shadow: none; border-width: 1px; }
+  }
+</style>
+</head>
+<body>
+<nav class="top">
+  <a class="btn" href="./">← Jihoney OS</a>
+  <a class="btn" href="assets/JiHeonKim_Resume.pdf" target="_blank" rel="noopener">Open original PDF</a>
+  <a class="btn" href="assets/JiHeonKim_Resume.pdf" download>Download</a>
+  <button class="btn" onclick="print()">Print</button>
+</nav>
+<main class="sheet"><div class="doc" id="doc"></div></main>
+<script src="js/content.js"></script>
+<script>
+  const H = JOS.html;
+  document.getElementById('doc').innerHTML = [H.about(), H.research(), H.projects(), H.pubs(), H.awards()].join('');
+  document.querySelectorAll('details').forEach(d => d.open = true); // a résumé shows everything
+</script>
+</body>
+</html>
