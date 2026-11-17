@@ -75,7 +75,12 @@ a { color: inherit; }
 .doc li { margin: 3px 0; }
 .doc li::marker { content: "▪ "; color: var(--honey-d); }
 .doc .hero { display: flex; gap: 16px; align-items: center; }
-.doc .avatar { flex: none; width: 68px; height: 68px; display: grid; place-items: center; font-size: 36px; background: var(--honey); border: 2px solid var(--ink); border-radius: 50%; box-shadow: 3px 3px 0 var(--ink); }
+.doc .avatar { flex: none; width: 84px; height: 84px; display: grid; place-items: center; font-size: 36px; background: var(--honey); border: 2px solid var(--ink); border-radius: 50%; box-shadow: 3px 3px 0 var(--ink); }
+.doc .avatar { overflow: hidden; }
+.doc .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+.doc .cert { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; text-decoration: none; font-size: 12px; font-weight: 600; }
+.doc .cert img { width: 64px; height: 90px; object-fit: cover; border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); background: #fff; }
+.doc .cert:hover span { background: var(--honey); }
 .doc .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .doc .chips li::marker { content: ""; }
 .doc .chips li { margin: 0; padding: 3px 9px; border: 2px solid var(--ink); background: var(--honey); font-size: 12px; font-weight: 600; }

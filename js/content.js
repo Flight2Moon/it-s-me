@@ -9,6 +9,7 @@ JOS.data = {
   host: 'hive',
   tagline: 'Undergraduate AI researcher working on vision-language models, multimodal learning, and trustworthy AI.',
   email: 'kimjiheon2536@gmail.com',
+  photo: 'assets/photo.jpg',
   links: {
     github: 'https://github.com/Flight2Moon',
     blog: 'https://flight2moon.github.io/',
@@ -153,7 +154,7 @@ JOS.data = {
   ],
   awards: [
     {
-      title: 'Future Talent Award (미래인재상)', by: 'The Korean Society of Lipid and Atherosclerosis (SoLA)', when: 'Apr 2026',
+      title: 'Future Talent Award (미래인재상)', by: 'The Korean Society of Lipid and Atherosclerosis (SoLA)', when: 'Apr 2026', cert: 'assets/cert-sola.jpg',
       topic: 'Improving Prediction of Suboptimal Medication Adherence in Dyslipidemia Using Generative Data Augmentation',
       points: [
         'Conducted first-author research on predicting suboptimal medication adherence using nationally representative KNHANES data',
@@ -162,7 +163,7 @@ JOS.data = {
       ]
     },
     {
-      title: '3rd Place, College Student Thesis Competition', by: 'The Korean Society of Management Consulting', when: 'Nov 2025',
+      title: '3rd Place, College Student Thesis Competition', by: 'The Korean Society of Management Consulting', when: 'Nov 2025', cert: 'assets/cert-thesis.jpg',
       topic: 'Shareholder structure and kinship share analysis system using an LLM-based name normalization model',
       points: [
         'Proposed a company-specific TAG (Tabular-Augmented Generation) framework to improve RAG retrieval performance with per-company summary information',
@@ -170,7 +171,7 @@ JOS.data = {
       ]
     },
     {
-      title: '1st Place, CODE:MEDI', by: 'Busan Metropolitan City', when: 'Aug 2025',
+      title: '1st Place, CODE:MEDI', by: 'Busan Metropolitan City', when: 'Aug 2025', cert: 'assets/cert-codemedi.jpg',
       topic: 'Predicting 30-day discharge dates for UTI patients using MIMIC-IV data',
       points: [
         'Achieved 93.2% accuracy using a Transformer-based model with imputation and masking strategies for missing data',
@@ -204,9 +205,11 @@ JOS.data = {
     `<article class="item"><header><h3>${esc(title)}</h3><span class="when">${esc(when || '')}</span></header>` +
     (meta ? `<p class="meta">${esc(meta)}</p>` : '') + body + `</article>`;
 
+  const cert = a => a.cert ? `<a class="cert" href="${esc(a.cert)}" target="_blank" rel="noopener"><img src="${esc(a.cert)}" alt="Certificate: ${esc(a.title)}" loading="lazy"><span>View certificate ↗</span></a>` : '';
+
   JOS.html = {
     about: () => `
-      <div class="hero"><div class="avatar" aria-hidden="true">🐝</div>
+      <div class="hero"><div class="avatar">${D.photo ? `<img src="${esc(D.photo)}" alt="Portrait of ${esc(D.name)}">` : '🐝'}</div>
         <div><h1>${esc(D.name)} <small>${esc(D.nameKo)}</small></h1><p>${esc(D.tagline)}</p></div></div>
       <h2>Research Interests</h2>
       <ul class="chips">${D.interests.map(i => `<li>${esc(i)}</li>`).join('')}</ul>
@@ -227,7 +230,7 @@ JOS.data = {
       D.publications.map(p => `<article class="item"><p class="meta">${esc(p.authors)}</p><h3>“${esc(p.title)}”</h3>
         <p><span class="tag">${esc(p.status)}</span> ${esc(p.venue)}${p.note ? ` <span class="meta">— ${esc(p.note)}</span>` : ''}</p></article>`).join(''),
     awards: () => `<h2>Awards</h2>` +
-      D.awards.map(a => item(a.title, `${a.by} · ${a.topic}`, a.when, ul(a.points))).join('') +
+      D.awards.map(a => item(a.title, `${a.by} · ${a.topic}`, a.when, ul(a.points) + cert(a))).join('') +
       `<h2>Honors</h2>${ul(D.honors)}<h2>Certifications</h2>${ul(D.certs)}`
   };
 })();
